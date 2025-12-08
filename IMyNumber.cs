@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace OOP_Lab5
 {
-    internal interface IMyNumber
+    internal interface IMyNumber<T> where T : IMyNumber<T>
     {
+        T Add(T b);
+        T Subtract(T b);
+        T Multiply(T b);
+        T Divide(T b);
     }
+
 }
