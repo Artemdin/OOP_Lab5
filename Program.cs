@@ -98,7 +98,9 @@ namespace OOP_Lab5
                 MyComplex c1 = new MyComplex(re1, im1);
                 MyComplex c2 = new MyComplex(re2, im2);
 
-                Console.WriteLine("\nРезультати:");
+                Console.WriteLine($"\na = {c1}");
+               Console.WriteLine($"b = {c2}");
+            Console.WriteLine("\nРезультати:");
                 Console.WriteLine("a + b = " + c1.Add(c2));
                 Console.WriteLine("a - b = " + c1.Subtract(c2));
                 Console.WriteLine("a * b = " + c1.Multiply(c2));

@@ -8,66 +8,69 @@ namespace OOP_Lab5
 {
     internal class MyComplex : IMyNumber<MyComplex>
     {
-        private double re;
-        private double im;
+        private double real;
+        private double imagi;
 
  
         public double Re
         {
             get
             {
-                return re;
+                return real;
             }
         }
         public double Im
         {
             get
             {
-                return im;
+                return imagi;
             }
         }
-        public MyComplex(double re, double im)
+        public MyComplex(double real, double imagi)
         {
-            this.re = re;
-            this.im = im;
+            this.real = real;
+            this.imagi = imagi;
         }
 
         public MyComplex Add(MyComplex b)
         {
-            double newRe = re + b.re;
-            double newIm = im + b.im;
+            double newRe = real + b.real;
+            double newIm = imagi + b.imagi;
             return new MyComplex(newRe, newIm);
         }
 
         public MyComplex Subtract(MyComplex b)
         {
-            double newRe = re - b.re;
-            double newIm = im - b.im;
+            double newRe = real - b.real;
+            double newIm = imagi - b.imagi;
             return new MyComplex(newRe, newIm);
         }
 
         public MyComplex Multiply(MyComplex b)
         {
-            double newRe = re * b.re - im * b.im;
-            double newIm = re * b.im + im * b.re;
+            double newRe = real * b.real - imagi * b.imagi;
+            double newIm = real * b.imagi + imagi * b.real;
             return new MyComplex(newRe, newIm);
         }
 
         public MyComplex Divide(MyComplex b)
         {
-            double divisor = b.re * b.re + b.im * b.im;
+            double divisor = b.real * b.real + b.imagi * b.imagi;
 
             if (divisor == 0)
                 throw new DivideByZeroException();
 
-            double newRe = (re * b.re + im * b.im) / divisor;
-            double newIm = (im * b.re - re * b.im) / divisor;
+            double newRe = (real * b.real + imagi * b.imagi) / divisor;
+            double newIm = (imagi * b.real - real * b.imagi) / divisor;
             return new MyComplex(newRe, newIm);
         }
 
         public override string ToString()
         {
-            return $"{re}+{im}i";
+            if (imagi >= 0)
+                return $"{real}+{imagi}i";
+            else
+                return $"{real}{imagi}i"; 
         }
     }
 }
