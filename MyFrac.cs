@@ -25,6 +25,21 @@ namespace OOP_Lab5
         {
             this.nom = nom;
             this.denom = denom;
+            Normalize();
+        }
+
+        private void Normalize()
+        {
+            BigInteger gcd = BigInteger.GreatestCommonDivisor(nom, denom);
+            nom /= gcd;
+            denom /= gcd;
+
+        
+            if (denom < 0)
+            {
+                nom = -nom;
+                denom = -denom;
+            }
         }
 
         public MyFrac Add(MyFrac b)
